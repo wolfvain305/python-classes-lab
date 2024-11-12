@@ -13,12 +13,12 @@ class Game:
     def print_board(self):
         b = self.board
         print(f"""
-              A   B   C
-          1)  {b['a1'] or ' '} | {b['b1'] or ' '} | {b['c1'] or ' '}
-              ----------
-          2)  {b['a2'] or ' '} | {b['b2'] or ' '} | {b['c2'] or ' '}
-              ----------
-          3)  {b['a3'] or ' '} | {b['b3'] or ' '} | {b['c3'] or ' '}
+            A   B   C
+        1)  {b['a1'] or ' '} | {b['b1'] or ' '} | {b['c1'] or ' '}
+            ----------
+        2)  {b['a2'] or ' '} | {b['b2'] or ' '} | {b['c2'] or ' '}
+            ----------
+        3)  {b['a3'] or ' '} | {b['b3'] or ' '} | {b['c3'] or ' '}
         """)
 
     def print_message(self):
@@ -32,3 +32,12 @@ class Game:
     def render(self):
         self.print_board()
         self.print_message()
+
+    def get_move(self):
+        while true:
+            move = input("enter a valid move (example: A1):").lower()
+            if move in self.board and self.board[move] is None:
+                self.board[move] = self.turn
+                break
+            else:
+                print("Invalid move ! Please try again.")
