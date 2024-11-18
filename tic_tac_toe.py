@@ -23,9 +23,6 @@ class Game:
         elif self.tie:
             print("it's a tie!")
     
-    if __name__== "__main__":
-        game_instance = Game()
-        game_instance.play_game()
 
     def print_board(self):
         b = self.board
@@ -52,11 +49,22 @@ class Game:
 
     def get_move(self):
         while True:
-            move = input(" Ener a valid move (example: A1):").lower()
+            move = input(" Enter a valid move (example: A1):").lower()
             if move in self.board and self.board[move] is None:
                 self.board[move] = self.turn
                 break
             else:
                 print("Invalid move! Please try again!")
 
-    
+    def
+
+    def check_for_tie(self):
+        if all(value is not None for value in self.board.values()) and not self.winner:
+            self.tie = True
+
+    def switch_turn(self):
+        self.turn = 'O' if self.turn == 'X' else 'X'
+
+if __name__ == "__main__":
+    game_instance = Game()
+    game_instance.play_game()
