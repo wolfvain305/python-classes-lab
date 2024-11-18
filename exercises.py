@@ -22,3 +22,30 @@ class Game:
             print(f"Congratulations! Player {self.winner} wins!")
         elif self.tie:
             print("it's a tie!")
+    
+    if __name__== "__main__":
+        game_instance = Game()
+        game_instance.play_game()
+
+    def print_board(self):
+        b = self.board
+        print(f"""
+                A   B   C
+            1)  {b['a1'] or ' '} | {b['b1'] or ' '} | {b['c1'] or ' '}
+                ----------
+            2)  {b['a2'] or ' '} | {b['b2'] or ' '} | {b['c2'] or ' '}
+                ----------
+            3)  {b['a3'] or ' '} | {b['b3'] or ' '} | {b['c3'] or ' '}
+        """)
+
+    def print_message(self):
+        if self.winner:
+            print(f"{self.winner} wins the game!")
+        elif self.tie:
+            print("It's a tie!")
+        else:
+            print(f"It's player {self.turn}'s turn!")
+    
+    def render(self):
+        self.print_board()
+        self.print_message()
